@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Welcome to Aakash Quora.com</h1>
+    <div>
+      Create a Post
+      <button><a href="/posts/new">Create</a></button>
+    </div>
+    <% posts.forEach((post)=>{ %>
+    <div class="container">
+      <div class="author1">@<%= post.name %></div>
+      <div class="content1"><%= post.content %></div>
+      <button><a href="/posts/<%= post.id %>/edit">edit</a></button>
+      <form action="/posts/<%=post.id%>?_method=DELETE" method="post">
+
+        <button>delete</button>
+      </form>
+      <a href="<%= "/posts"+ "/" + post.id %>">Show in detail</a>
+    </div>
+    <% }) %>
+  </body>
+</html>
